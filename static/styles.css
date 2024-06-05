@@ -1,0 +1,227 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f3f4f6;
+}
+
+header {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.location-icon {
+    margin-right: 0.5em;
+}
+
+.search-location {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 1em 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+main {
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.current-weather {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+.live-comments {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.live-comments h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+#comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1em;
+    max-height: 300px; /* Add max-height to keep the section fixed */
+}
+
+#comments-list li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-name, #comment-input {
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+}
+
+#comment-form button {
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+#comment-form button:hover {
+    background-color: #45a049;
+}
+
+.temperature-range {
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.current-temp {
+    font-size: 2.5em;
+    margin-top: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-temp .weather-icon {
+    font-size: 2em;
+    margin-left: 0.5em;
+}
+
+.weather-map-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#korea-map {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.weather-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    padding: 0.5em;
+}
+
+.weather-info .icon {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+}
+
+.weather-info .temp {
+    font-size: 0.8em;
+}
+
+.weather-info .name {
+    font-size: 0.8em;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weekly-forecast, .hourly-forecast {
+    width: 45%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weekly-forecast ul, .hourly-forecast ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.weekly-forecast ul li, .hourly-forecast ul li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ddd;
+}
