@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HowsTheWeather</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">HowsTheWeather</div>
+        <div class="location">
+            <span class="location-icon">📍</span>
+            <span id="location-name">서울</span>
+        </div>
+        <a href="location_search.html" class="search-location">지역검색</a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="main-content">
+            <div class="current-weather">
+                <h1>현재 날씨</h1>
+                <div class="temperature-range">
+                    <span class="low-temp">18°C</span> ~ <span class="high-temp">26°C</span>
+                </div>
+                <div class="current-temp">
+                    <span id="current-temp">22.9°C</span>
+                    <span class="weather-icon">☀️</span>
+                </div>
+            </div>
+            <div class="live-comments">
+                <h2>실시간 댓글</h2>
+                <ul id="comments-list">
+                    {% for comment in comments %}
+                    <li><strong>{{ comment.name }}</strong>: {{ comment.comment }}</li>
+                    {% endfor %}
+                </ul>
+                <form id="comment-form" method="post" action="/comments/">
+                    <input type="text" id="comment-name" name="name" placeholder="이름" required>
+                    <input type="text" id="comment-input" name="comment" placeholder="댓글을 입력하세요..." required>
+                    <button type="submit">댓글 달기</button>
+                </form>
+            </div>
+        </section>
+        <section class="forecast">
+            <div class="weekly-forecast">
+                <h2>주간예보</h2>
+                <ul id="weekly-forecast">
+                    <li>일: 22°C</li>
+                    <li>월: 24°C</li>
+                    <li>화: 21°C</li>
+                    <li>수: 23°C</li>
+                    <li>목: 20°C</li>
+                    <li>금: 19°C</li>
+                    <li>토: 25°C</li>
+                </ul>
+            </div>
+            <div class="hourly-forecast">
+                <h2>시간별 예보</h2>
+                <ul id="hourly-forecast">
+                    <li>9시: 21°C</li>
+                    <li>12시: 24°C</li>
+                    <li>15시: 26°C</li>
+                    <li>18시: 23°C</li>
+                    <li>21시: 20°C</li>
+                </ul>
+            </div>
+        </section>
+        <section class="weather-map">
+            <h1>지역별 날씨</h1>
+            <div class="weather-map-container">
+                <img src="/static/img/korea_base_map.png" alt="한국 지도" id="korea-map">
+                <div id="map-overlay"></div>
+            </div>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

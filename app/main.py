@@ -18,8 +18,19 @@ df_unique = df_selected.drop_duplicates(subset=['1단계', '2단계'])
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    with open("static/index.html", "r", encoding="utf-8") as file:
+    with open("static/main.html", "r", encoding="utf-8") as file:
         return HTMLResponse(content=file.read(), status_code=200)
+
+@app.get("/main.html", response_class=HTMLResponse)
+async def read_main():
+    with open("static/main.html", "r", encoding="utf-8") as file:
+        return HTMLResponse(content=file.read(), status_code=200)
+
+@app.get("/location_search.html", response_class=HTMLResponse)
+async def read_location_search():
+    with open("static/location_search.html", "r", encoding="utf-8") as file:
+        return HTMLResponse(content=file.read(), status_code=200)
+
 
 @app.get("/search")
 def search(query: str):
