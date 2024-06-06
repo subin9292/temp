@@ -32,8 +32,18 @@ def search(query: str):
 
 @app.get("/coordinates")
 def coordinates(place: str):
-    results = df_unique[(df_unique['1단계'].str.contains(place, case=False, na=False)) | 
-                        (df_unique['2단계'].str.contains(place, case=False, na=False))]
+    # place 문자열을 공백을 기준으로 나누기
+    place_parts = place.split()
+    
+    if len(place_parts) == 1:
+        # 1단계만 검색
+        results = df_unique[df_unique['1단계'].str.contains(place_parts[0], case=False, na=False)]
+    elif len(place_parts) == 2:
+        # 1단계와 2단계 모두 검색
+        results = df_unique[(df_unique['1단계'].str.contains(place_parts[0], case=False, na=False)) & 
+                            (df_unique['2단계'].str.contains(place_parts[1], case=False, na=False))]
+    else:
+        raise HTTPException(status_code=400, detail="Invalid place format")
     
     if not results.empty:
         result = results.iloc[0]
